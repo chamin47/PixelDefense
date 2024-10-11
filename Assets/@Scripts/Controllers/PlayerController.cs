@@ -1,29 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : CreatureController
 {
-	private void OnCollisionEnter2D(Collision2D collision)
+	Coroutine _coAttack;
+
+	public override bool Init()
 	{
-		MonsterController target = collision.gameObject.GetComponent<MonsterController>();
-		if (target == null)
-			return;
+		if (base.Init() == false)
+			return false;
+
+		StartAttack();
+
+		return true;
 	}
 
-	public override void OnDamaged(BaseController attacker, int damage)
+	void StartAttack()
 	{
-		base.OnDamaged(attacker, damage);
+		if (_coAttack != null)
+			StopCoroutine(_coAttack);
 
-		Debug.Log($"OnDamaged ! {Hp}");
-
-		// TEMP
-		CreatureController cc = attacker as CreatureController;
-		cc?.OnDamaged(this, 10000);
+		_coAttack = StartCoroutine(CoAttack());
 	}
 
-	protected override void OnDead()
+	IEnumerator CoAttack()
 	{
-		base.OnDead();
+		while (true)
+		{
+			Attack();
+			yield return new WaitForSeconds(1.0f);
+		}
+	}
+
+	void Attack()
+	{
+		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 5.0f); // 필요한 경우 반경 조정
+		foreach (var hitCollider in hitColliders)
+		{
+			MonsterController monster = hitCollider.GetComponent<MonsterController>();
+			if (monster != null)
+			{
+				monster.OnDamaged(this, 100);
+			}
+		}
 	}
 }

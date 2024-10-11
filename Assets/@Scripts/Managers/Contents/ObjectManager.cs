@@ -37,32 +37,48 @@ public class ObjectManager
 	}
 
 	public T Spawn<T>(int templateID = 0) where T : BaseController
-    {
-        System.Type type = typeof(T);
+	{
+		System.Type type = typeof(T);
 
-        if (type == typeof(PlayerController))
-        {
-            GameObject go = Managers.Resource.Instantiate("Player.prefab", pooling: true);
-            go.name = "Player";
+		if (type == typeof(PlayerController))
+		{
+			GameObject go = Managers.Resource.Instantiate("Player.prefab", pooling: true);
+			go.name = "Player";
 
-            PlayerController pc = go.GetOrAddComponent<PlayerController>();
-            Player = pc;
+			PlayerController pc = go.GetOrAddComponent<PlayerController>();
+			Player = pc;
+			pc.Init();
 
-            return pc as T;
-        }
-        else if (type == typeof(MonsterController))
-        {
-            string name = (templateID == 0 ? "Goblin_01" : "Snake_01");
-            GameObject go = Managers.Resource.Instantiate(name + ".prefab", pooling: true);
+			return pc as T;
+		}
+		else if (type == typeof(MonsterController))
+		{
+			// DataManager에서 MonsterData 가져오기
+			MonsterData md = Managers.Data.MonsterDict[templateID];
 
-            MonsterController mc = go.GetOrAddComponent<MonsterController>();
-            Monsters.Add(mc);
-        }
+			// 프리팹 로드 (프리팹 이름이 몬스터 이름과 동일하다고 가정)
+			string prefabName = md.Name;
 
-        return null;
-    }
+			GameObject go = Managers.Resource.Instantiate(prefabName + ".prefab", pooling: true);
+			if (go == null)
+			{
+				Debug.LogError($"프리팹 로드 실패: {prefabName}");
+				return null;
+			}
 
-    public void Despawn<T>(T obj) where T : BaseController
+			MonsterController mc = go.GetOrAddComponent<MonsterController>();
+			mc.SetMonsterData(md); // MonsterData 할당
+			mc.Init();
+
+			Monsters.Add(mc);
+			return mc as T;
+		}
+
+		return null;
+	}
+
+
+	public void Despawn<T>(T obj) where T : BaseController
     {
         System.Type type = typeof(T);
 
