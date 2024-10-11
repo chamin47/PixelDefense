@@ -25,23 +25,23 @@ public class GameScene : BaseScene
 		_spawningpool = gameObject.AddComponent<SpawningPool>();
 
 		GameObject player = Managers.Resource.Instantiate("Player.prefab");
-		player.AddComponent<CameraController>();
+		player.transform.position = Vector3.zero;
 
 		Camera.main.GetComponent<CameraController>().Target = player;
 	}
 
-	void StartLoaded2()
-	{
-		var player = Managers.Object.Spawn<PlayerController>();
+	//void StartLoaded2()
+	//{
+	//	var player = Managers.Object.Spawn<PlayerController>();
 
-		for (int i = 0; i < 100; i++)
-		{
-			MonsterController mc = Managers.Object.Spawn<MonsterController>(Random.Range(0, 2));
-			mc.transform.position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
-		}
+	//	for (int i = 0; i < 100; i++)
+	//	{
+	//		MonsterController mc = Managers.Object.Spawn<MonsterController>(Random.Range(0, 2));
+	//		mc.transform.position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+	//	}
 
-		Camera.main.GetComponent<CameraController>().Target = player.gameObject;
-	}
+	//	Camera.main.GetComponent<CameraController>().Target = player.gameObject;
+	//}
 
 	public override void Clear()
 	{

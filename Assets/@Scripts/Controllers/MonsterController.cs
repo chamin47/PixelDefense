@@ -74,7 +74,6 @@ public class MonsterController : CreatureController
 
 	void OnMouseDown()
 	{
-		// 몬스터 정보 팝업 표시
 		UI_MonsterInfoPopup popup = Managers.UI.ShowPopupUI<UI_MonsterInfoPopup>();
 		popup.SetInfo(MonsterData);
 	}
