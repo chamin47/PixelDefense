@@ -67,8 +67,8 @@ public class ObjectManager
 			}
 
 			MonsterController mc = go.GetOrAddComponent<MonsterController>();
-			mc.SetMonsterData(md); // MonsterData 할당
-			mc.Init();
+			mc.SetMonsterData(md); // MonsterData 설정
+			mc.Init(); // MonsterData가 설정된 후에 Init 호출
 
 			Monsters.Add(mc);
 			return mc as T;

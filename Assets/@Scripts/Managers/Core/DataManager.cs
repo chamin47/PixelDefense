@@ -12,7 +12,7 @@ public class DataManager
 
 	void LoadMonsterData()
 	{
-		List<Dictionary<string, object>> data = CSVReader.Read("MonsterData");
+		List<Dictionary<string, object>> data = CSVReader.Read("Data/MonsterData");
 
 		int id = 0;
 		foreach (var item in data)

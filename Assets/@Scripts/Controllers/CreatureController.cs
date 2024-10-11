@@ -9,17 +9,7 @@ public class CreatureController : BaseController
     public int Hp { get; set; } = 100;
 	public int maxHp { get; set; } = 100;
 
-	void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public virtual void OnDamaged(BaseController attacker, int damage)
+	public virtual void OnDamaged(BaseController attacker, int damage)
     {
         Hp -= damage;
         if (Hp < 0)

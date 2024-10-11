@@ -17,11 +17,40 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b7ead01f3f05faa4497f871544b13c55
   m_SerializeEntries:
-  - m_GUID: 4df5691b0d261e94bb556bbea53cc1c2
-    m_Address: Player.prefab
+  - m_GUID: 2d9d02794706a3842a961b865066ab1b
+    m_Address: Assets/@Resources/Prefabs/Elite Orc.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 410d0f2cc0f3a8746b09b1dcfc21b901
+    m_Address: Assets/@Resources/Prefabs/Orc rider.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3169abf181ca784d8775d238b25610a
+    m_Address: Assets/@Resources/Prefabs/Skeleton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b46972d55cf5054f954022028ad05b4
+    m_Address: Assets/@Resources/Prefabs/Werebear.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23b8b4010e3a8514388ee4466f54ad1d
+    m_Address: Assets/@Resources/Prefabs/Wizard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df5691b0d261e94bb556bbea53cc1c2
+    m_Address: Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b88c2d330fe652b4da51b3081073eec5, type: 2}

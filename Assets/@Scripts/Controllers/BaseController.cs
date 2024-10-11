@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using static Define;
 
@@ -8,10 +7,10 @@ public class BaseController : MonoBehaviour
 {
     public ObjectType _ObjectType { get; protected set; }
 
-    void Awake()
-    {
-        Init();
-    }
+    //void Awake()
+    //{
+    //    Init();
+    //}
 
     bool _init = false;
     public virtual bool Init()
