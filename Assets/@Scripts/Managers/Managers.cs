@@ -21,9 +21,9 @@ public class Managers : MonoBehaviour
 	UIManager _ui = new UIManager();
 	public static DataManager Data { get { return Instance?._data; } }
 	public static PoolManager Pool { get { return Instance?._pool; } }
-	public static ResourceManager ResourceManager { get { return Instance?._resource; } }
+	public static ResourceManager Resource { get { return Instance?._resource; } }
 	public static SceneManagerEx Scene { get { return Instance?._scene; } }
-	public static SoundManager SoundManager { get { return Instance?._sound; } }
+	public static SoundManager Sound { get { return Instance?._sound; } }
 	public static UIManager UI { get { return Instance?._ui; } }
 	#endregion
 
