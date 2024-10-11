@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using static Define;
 
 public class BaseController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ObjectType _ObjectType { get; protected set; }
+
+    void Awake()
     {
-        
+        Init();
     }
 
-    // Update is called once per frame
+    bool _init = false;
+    public virtual bool Init()
+    {
+        if (_init)
+            return false;
+
+        _init = true;
+        return true;
+    }
+
     void Update()
     {
         

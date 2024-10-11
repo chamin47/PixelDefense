@@ -1,8 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Define;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+using Random = UnityEngine.Random;
+using Transform = UnityEngine.Transform;
 
-public static class Utils 
+public static class Util
 {
 	public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
 	{
@@ -15,7 +21,7 @@ public static class Utils
 	public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
 	{
 		Transform transform = FindChild<Transform>(go, name, recursive);
-		if (transform == null) 
+		if (transform == null)
 			return null;
 
 		return transform.gameObject;
@@ -49,5 +55,5 @@ public static class Utils
 		}
 
 		return null;
-	}
+	}	
 }

@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 4df5691b0d261e94bb556bbea53cc1c2
     m_Address: Player.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Prefabs
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b88c2d330fe652b4da51b3081073eec5, type: 2}

@@ -27,6 +27,10 @@ public class ResourceManager
             return null;
         }
 
+        // Pooling
+        if (pooling )
+            return Managers.Pool.Pop(prefab);      
+
         GameObject go = Object.Instantiate(prefab, parent);
         go.name = prefab.name;
         return go;
@@ -35,6 +39,9 @@ public class ResourceManager
     public void Destroy(GameObject go)
     {
         if (go == null)
+            return;
+
+        if (Managers.Pool.Push(go))
             return;
 
         Object.Destroy(go);
